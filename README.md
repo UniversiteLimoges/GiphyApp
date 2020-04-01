@@ -37,12 +37,6 @@ $ touch database/database.sqlite
 $ php artisan migrate
 ```
 
-#### Seeding
-`$ php make:seeder TagsSeeder`
-`$ composer dump-autoload`
-`$ php artisan db:seed`
-
-
 
 ### CSS [Tailwind](https://laravel-mix.com/extensions/tailwindcss)
 
@@ -79,6 +73,10 @@ mix.js('resources/js/app.js', 'public/js')
 ```php
 $table->enum('type', ['fav','trait'])->nullable();
 ```
+### Seeding
+`$ php make:seeder TagsSeeder`
+`$ composer dump-autoload`
+`$ php artisan db:seed`
 
 
 ## Eloquent Relationships
@@ -132,11 +130,106 @@ $user->tag()->detach();
 }
 ```
 
+### User - Location : One To One
+In User
+```php
+public function location() 
+{
+    return $this->hasOne('App\Location');
+}
+```
+In Location
+```php
+public function user()
+{
+	return $this->belongsTo('App\User');
+}
+```
+
 
 
 ## Geolocation
 ### [Torann/GeoIP](https://github.com/Torann/laravel-geoip)
 Used to get location information from IP visitor thanks to global $\_SERVER['REMOTE_ADDR'] variable
+
+* New table locations
+```php
+ public function up()
+    {
+        Schema::create('locations', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->nullable();
+            $table->string('ip')->nullable();
+            $table->string('country')->nullable();
+            $table->string('city')->nullable();
+            $table->float('lat', 8, 3)->nullable();
+            $table->float('lon', 8, 3)->nullable();
+            $table->timestamps();
+        });
+    }
+```
+
+* New Middleware 'geoIp'
+```php
+namespace App\Http\Middleware;
+
+use Closure;
+use App\Location;
+use App\User;
+use Illuminate\Support\Facades\Auth;
+
+class GeoIp
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */
+    public function handle($request, Closure $next)
+    {
+        // Get current User
+        $current_user = Auth::user();
+
+        // Get instance of \Torann\GeoIP\Facades\GeoIP
+        $actual_location = geoip()->getLocation($_SERVER['REMOTE_ADDR']);
+
+        if( 
+            $current_user->location
+            //!empty($current_user->location_ip)
+            //$current_user->has('location')
+            ) {
+
+            $location = $current_user->location;
+
+            $location->user_id = $current_user->id;
+            $location->ip = $_SERVER['REMOTE_ADDR'];
+            $location->country = $actual_location->country;
+            $location->city = $actual_location->city;
+            $location->lat = $actual_location->lat;
+            $location->lon = $actual_location->lon;
+
+            $location->save();
+
+        }else{
+
+            $location = New Location();
+
+            $location->user_id = $current_user->id;
+            $location->ip = $_SERVER['REMOTE_ADDR'];
+            $location->country = $actual_location->country;
+            $location->city = $actual_location->city;
+            $location->lat = $actual_location->lat;
+            $location->lon = $actual_location->lon;
+
+            $location->save();  
+        }
+
+        return $next($request);
+    }
+}
+```
 
 
 

@@ -42,4 +42,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Tag');
     }
+
+    public function location() 
+    {
+        return $this->hasOne('App\Location');
+    }
 }

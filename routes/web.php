@@ -19,8 +19,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')
+	->middleware('geoip')
+	->name('home');
 Route::get('/userslist', 'UserController@index')->name('userslist');
 
 // Tags
 Route::get('/tagslist', 'TagController@getTags')->name('tagslist');
+
+
+// Test
+Route::get('/test', 'TestController@geoip');
