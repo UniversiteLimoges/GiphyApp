@@ -20,4 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/userlist', 'UserController@index')->name('userlist');
+Route::get('/userslist', 'UserController@index')->name('userslist');
+
+// Tags
+Route::get('/tagslist', 'TagController@getTags')->name('tagslist');

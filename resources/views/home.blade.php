@@ -15,7 +15,8 @@
                     @endif
 
                     You are logged in!
-                    <user-component></user-component>
+                    <users-component></users-component>
+                    <tags-component></tags-component>
                 </div>
             </div>
         </div>

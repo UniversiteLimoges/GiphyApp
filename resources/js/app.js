@@ -23,7 +23,8 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-Vue.component('user-component', require('./components/UserComponent.vue').default);
+Vue.component('users-component', require('./components/UsersComponent.vue').default);
+Vue.component('tags-component', require('./components/TagsComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to	

@@ -21,7 +21,7 @@
                     </tr>
                 </table>
 
-                    <button @click="getUser" type="submit">Get User</button>
+                    <button @click="getUsers" type="submit">Get User</button>
                 </div>
             </div>
         </div>
@@ -39,8 +39,8 @@
         },
 
         methods: {
-            getUser(){
-                axios.get('/userlist')
+            getUsers(){
+                axios.get('/userslist')
                     .then( response => {
                         this.users = response.data.users
                         console.log(response)
