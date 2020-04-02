@@ -2,14 +2,14 @@
 
 use Illuminate\Database\Seeder;
 
-class TagSeeder extends Seeder
+class TagsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      *
      * @return void
      */
-    public function run()
+	public function run()
     {
          DB::table('tags')->insert([
             'name' => 'cinema',
@@ -40,5 +40,5 @@ class TagSeeder extends Seeder
             'name' => 'drinker',
             'type' => 'trait',
         ]);
-    }
+	}
 }

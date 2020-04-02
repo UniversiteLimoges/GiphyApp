@@ -65,7 +65,7 @@ mix.js('resources/js/app.js', 'public/js')
 `npm run dev`
 
 
-
+_____________________________________________________
 
 
 ## Models Structure
@@ -147,6 +147,8 @@ public function user()
 ```
 
 
+
+_________________________________________________________________
 
 ## Geolocation
 ### [Torann/GeoIP](https://github.com/Torann/laravel-geoip)

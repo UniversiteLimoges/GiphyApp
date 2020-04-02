@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">User List</div>
+                <div class="card-header">Tags List</div>
                 
                 <div class="card-body">
 
@@ -21,7 +21,7 @@
                     </tr>
                 </table>
 
-                    <button @click="getTags" type="submit">Get Tags</button>
+                    <button class="btn btn-blue" @click="getTags" type="submit">Get Tags</button>
                 </div>
             </div>
         </div>

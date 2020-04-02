@@ -27,6 +27,9 @@ Route::get('/userslist', 'UserController@index')->name('userslist');
 // Tags
 Route::get('/tagslist', 'TagController@getTags')->name('tagslist');
 
+// Location
+Route::get('/getlocation', 'LocationController@getUserLocation')->name('getlocation');
+
 
 // Test
 Route::get('/test', 'TestController@geoip');

@@ -15,6 +15,7 @@
                     @endif
 
                     You are logged in!
+                    <map-component></map-component>
                     <users-component></users-component>
                     <tags-component></tags-component>
                 </div>

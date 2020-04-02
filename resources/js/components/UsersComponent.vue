@@ -21,13 +21,15 @@
                     </tr>
                 </table>
 
-                    <button @click="getUsers" type="submit">Get User</button>
+                    <button class="btn btn-blue" @click="getUsers" type="submit">Get User</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 </template>
+
+
 
 <script>
     export default {
@@ -48,5 +50,17 @@
                     })
             }
         },
-    }
+    };
 </script>
+
+<style>
+  .btn {
+    @apply font-bold py-2 px-4 rounded-full;
+  }
+  .btn-blue {
+    @apply bg-blue-500 text-white;
+  }
+  .btn-blue:hover {
+    @apply bg-blue-700 text-white;
+  }
+</style>
