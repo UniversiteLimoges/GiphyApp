@@ -108,7 +108,7 @@
                 </p>
 
                 <div class="links git">
-                    <a href="https://github.com/laravel/laravel"><img src="{{ asset('img/GitHub_Logo.png') }}" width="50px"></a>
+                    <a href="https://github.com/UniversiteLimoges/GiphyApp"><img src="{{ asset('img/GitHub_Logo.png') }}" width="50px"></a>
                 </div>
             </div>
         </div>
