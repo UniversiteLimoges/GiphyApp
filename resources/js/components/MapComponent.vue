@@ -13,9 +13,8 @@
                       frameborder="0" style="border:0"
                       :src='map' allowfullscreen>
                     </iframe>
-
-                    <input v-model="city" type="text" name="map" placeholder="City">
-                    <input v-model="country" type="text" name="map" placeholder="Contry">    
+                    <input class="input-tailwind" v-model="city" type="text" name="map" placeholder="City">
+                    <input class="input-tailwind" v-model="country" type="text" name="map" placeholder="Contry">    
                 </div>
             </div>
         </div>

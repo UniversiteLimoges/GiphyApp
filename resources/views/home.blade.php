@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Welcome {{ Auth::user()->name }}
                     <map-component></map-component>
                     <users-component></users-component>
                     <tags-component></tags-component>

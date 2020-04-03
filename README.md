@@ -131,7 +131,7 @@ $user->tag()->detach();
 ```
 
 ### User - Location : One To One
-In User
+In App\User
 ```php
 public function location() 
 {

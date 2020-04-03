@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>GiPy</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -59,14 +59,30 @@
                 text-transform: uppercase;
             }
 
+             .top-left {
+                position: absolute;
+                left: 10px;
+                top: 18px;
+            }
+
             .m-b-md {
                 margin-bottom: 30px;
             }
+            .gipy-img {
+                height: 10vh;
+            }
+
+            .git {
+                display: flex;
+                justify-content: center;
+            }
+
         </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
+                <div class="top-left links"> <img class="gipy-img" src="{{ asset('img/GiPy_logo.png') }}"></div>
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
@@ -82,21 +98,21 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    GiPy
                 </div>
+                <p>
+                    Gify is an test project where we will test <strong>SPA</strong> architecture based on <strong>Laravel</strong> server side and <strong>Vue</strong> client side.
+                </p>
+                <p style="margin-bottom: 10px">
+                    Through Gify, users can to meet each others according to some attributes : Geolocalisation and Tourism tastes
+                </p>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="links git">
+                    <a href="https://github.com/laravel/laravel"><img src="{{ asset('img/GitHub_Logo.png') }}" width="50px"></a>
                 </div>
             </div>
         </div>
+        <!--
         <div class="w-full max-w-xs">
             <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 <div class="mb-4">
@@ -128,8 +144,9 @@
 
 
             <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
-  <p class="font-bold">Be Warned</p>
-  <p>Something not ideal might be happening.</p>
-</div>
+              <p class="font-bold">Be Warned</p>
+              <p>Something not ideal might be happening.</p>
+            </div>
+        -->
     </body>
 </html>

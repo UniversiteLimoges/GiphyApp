@@ -63,4 +63,21 @@
   .btn-blue:hover {
     @apply bg-blue-700 text-white;
   }
+
+  .input-tailwind{
+    @apply appearance-none bg-transparent border-b border-b-2 border-blue-500 py-2 w-full text-gray-700 mr-3 py-1 px-2 leading-tight;
+  }
+  .input-tailwind:focus{
+    @apply outline-none;
+  }
+
+  .tag-button-unselect {
+    @apply bg-transparent border-blue-500 py-2 px-4 border text-blue-700 font-semibold rounded;
+  }
+
+  .tag-button-unselect:hover {
+    @apply bg-blue-500 text-white border-transparent;
+  }
+
+
 </style>

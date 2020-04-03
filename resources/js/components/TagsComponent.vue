@@ -7,19 +7,11 @@
                 
                 <div class="card-body">
 
-                <table>
-
-                    <tr>
-
-                        <th width="50%">Name</th>
-                        <th width="50%">Type</th>
-                    </tr>
-
-                    <tr v-for="tag in tags" :key="tag.id">
-                        <td>{{ tag.name }}</td>
-                        <td>{{ tag.type }}</td>
-                    </tr>
-                </table>
+                    <div class="tag-container">
+                        <button  v-for="tag in tags" :key="tag.id" class="tag-button-unselect">
+                            # {{ tag.name }}
+                        </button>
+                    </div> 
 
                     <button class="btn btn-blue" @click="getTags" type="submit">Get Tags</button>
                 </div>
@@ -47,5 +39,11 @@
 					});
 			}
 		}
-	}
+	};
 </script>
+<style scoped>
+    .tag-container {
+        display: flex;
+        flex-direction: column;
+    }
+</style>
